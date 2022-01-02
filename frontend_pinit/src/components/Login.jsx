@@ -18,7 +18,7 @@ function Login() {
       const doc = {
         _id: googleId,
         _type: "user",
-        username: `${givenName}${familyName !== null || familyName !== "" ? " " + familyName : ""}`,
+        userName: `${givenName}${familyName !== null || familyName !== "" ? " " + familyName : ""}`,
         image: imageUrl,
       };
       await sanityClient.createIfNotExists(doc);
