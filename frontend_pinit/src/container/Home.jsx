@@ -25,12 +25,11 @@ export default function Home() {
     async function getUserData() {
       const query = userQuery(userInfo.googleId);
       const loggedUser = await sanityClient.fetch(query);
-      console.log(loggedUser[0]);
       setUser(loggedUser[0]);
     }
     getUserData();
     scrollRef.current.scrollTo(0, 0);
-  }, []);
+  }, [userInfo]);
 
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out">
@@ -50,7 +49,7 @@ export default function Home() {
             <img src={logo} alt="logo" className="w-28" />
           </Link>
           <Link to={`user-profile/${user?._id}`}>
-            <img src={user?.image} alt="user-image" className="w-28" />
+            <img src={user?.image} alt="userImage" className="w-28" />
           </Link>
         </div>
         {/* Sidebar showing for mobile */}
